@@ -23,7 +23,20 @@ class Countdown():
         carrent = self.value
         self.value -= 1
         return carrent
-    
+
+print('Итератор:')
 for i in Countdown(5):
     print(i)
-    
+
+# 5. Собственый генератор
+def fibonacci(n):
+    a, b = 0, 1
+    count = 0
+    while count < n:
+        yield a
+        a, b = b, a + b
+        count += 1
+
+print('\nГенератор:')
+for num in fibonacci(10):
+    print(num)
