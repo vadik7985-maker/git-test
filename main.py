@@ -1,5 +1,6 @@
 from decimal import Decimal, getcontext, ROUND_HALF_UP
 from fractions import Fraction
+from datetime import datetime
 
 # 1.Простое преобразование
 print('список квадратов чисел от 1 до 10:', [x**2 for x in range(1, 10)])
@@ -85,3 +86,8 @@ print('вычитание:', a - b)
 print('умножение:', a * b)
 print('деление:', a / b)
 
+# 8.Текущая дата и время
+now = datetime.now()
+print("\nТекущая дата и время:", now)
+print("Только текущая дата:", now.date())
+print("Только текущее время:", now.time())
