@@ -1,6 +1,6 @@
 from decimal import Decimal, getcontext, ROUND_HALF_UP
 from fractions import Fraction
-from datetime import datetime
+from datetime import datetime, timedelta, date
 
 # 1.Простое преобразование
 print('список квадратов чисел от 1 до 10:', [x**2 for x in range(1, 10)])
@@ -91,3 +91,19 @@ now = datetime.now()
 print("\nТекущая дата и время:", now)
 print("Только текущая дата:", now.date())
 print("Только текущее время:", now.time())
+
+# 9.Разница дат
+birthday = date(2005, 6, 28)
+today = date.today()
+days_passed = (today - birthday).days
+
+# Дни до следующего дня рождения
+next_birthday = date(today.year, birthday.month, birthday.day)
+if next_birthday <= today:
+    next_birthday += timedelta(days=365)  # Добавляем год в днях
+
+days_to_birthday = (next_birthday - today).days
+
+print('\n')
+print(f"Дней с рождения: {days_passed}")
+print(f"Дней до следущего дня рождения: {days_to_birthday}")
