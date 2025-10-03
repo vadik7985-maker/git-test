@@ -52,13 +52,8 @@ def deposit_calculator(principal, annual_rate, years):
     annual_rate = Decimal(annual_rate)
     years = int(years)
 
-    # годовая ставка
     monthly_rate = annual_rate / (Decimal('12') * Decimal('100'))
-
-    # количество месяцев
     months = 12 * years
-
-    # формула: S = P * (1 + r/12*100)^(12*t)
     total = principal * ((Decimal('1') + monthly_rate) ** months)
 
     # округление 2 знаков после запятой
