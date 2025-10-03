@@ -63,13 +63,13 @@ def deposit_calculator(principal, annual_rate, years):
     return total, profit
 
 print('\nФинансовый калькулятор вкладов:')
-#initial_sum = input("Введите начальную сумму вклада (в рублях с копейками): ")
-#percent_rate = input("Введите годовую процентную ставку (%): ")
-#term_years = input("Введите срок вклада (в годах): ")
+initial_sum = input("Введите начальную сумму вклада (в рублях с копейками): ")
+percent_rate = input("Введите годовую процентную ставку (%): ")
+term_years = input("Введите срок вклада (в годах): ")
 
-#final_sum, earned_profit = deposit_calculator(initial_sum, percent_rate, term_years)
-#print(f"Итоговая сумма вклада: {final_sum} руб.")
-#print(f"Общая прибыль: {earned_profit} руб.")
+final_sum, earned_profit = deposit_calculator(initial_sum, percent_rate, term_years)
+print(f"Итоговая сумма вклада: {final_sum} руб.")
+print(f"Общая прибыль: {earned_profit} руб.")
 
 # 7.Рациональные дроби
 a = Fraction(3, 4)
