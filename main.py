@@ -1,3 +1,5 @@
+from decimal import Decimal, getcontext, ROUND_HALF_UP
+
 # 1.Простое преобразование
 print('список квадратов чисел от 1 до 10:', [x**2 for x in range(1, 10)])
 
@@ -40,3 +42,35 @@ def fibonacci(n):
 print('\nГенератор:')
 for num in fibonacci(10):
     print(num)
+
+# 6.Точные вычисления
+def deposit_calculator(principal, annual_rate, years):
+    getcontext().prec = 25  # кол-во значащих цифр
+    principal = Decimal(principal)
+    annual_rate = Decimal(annual_rate)
+    years = int(years)
+
+    # годовая ставка
+    monthly_rate = annual_rate / (Decimal('12') * Decimal('100'))
+
+    # количество месяцев
+    months = 12 * years
+
+    # формула: S = P * (1 + r/12*100)^(12*t)
+    total = principal * ((Decimal('1') + monthly_rate) ** months)
+
+    # округление 2 знаков после запятой
+    total = total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
+    profit = total - principal
+    return total, profit
+
+print('\nФинансовый калькулятор вкладов:')
+initial_sum = input("Введите начальную сумму вклада (в рублях с копейками): ")
+percent_rate = input("Введите годовую процентную ставку (%): ")
+term_years = input("Введите срок вклада (в годах): ")
+
+final_sum, earned_profit = deposit_calculator(initial_sum, percent_rate, term_years)
+
+print(f"Итоговая сумма вклада: {final_sum} руб.")
+print(f"Общая прибыль: {earned_profit} руб.")
