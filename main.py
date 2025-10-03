@@ -1,4 +1,5 @@
 from decimal import Decimal, getcontext, ROUND_HALF_UP
+from fractions import Fraction
 
 # 1.Простое преобразование
 print('список квадратов чисел от 1 до 10:', [x**2 for x in range(1, 10)])
@@ -66,11 +67,21 @@ def deposit_calculator(principal, annual_rate, years):
     return total, profit
 
 print('\nФинансовый калькулятор вкладов:')
-initial_sum = input("Введите начальную сумму вклада (в рублях с копейками): ")
-percent_rate = input("Введите годовую процентную ставку (%): ")
-term_years = input("Введите срок вклада (в годах): ")
+#initial_sum = input("Введите начальную сумму вклада (в рублях с копейками): ")
+#percent_rate = input("Введите годовую процентную ставку (%): ")
+#term_years = input("Введите срок вклада (в годах): ")
 
-final_sum, earned_profit = deposit_calculator(initial_sum, percent_rate, term_years)
+#final_sum, earned_profit = deposit_calculator(initial_sum, percent_rate, term_years)
+#print(f"Итоговая сумма вклада: {final_sum} руб.")
+#print(f"Общая прибыль: {earned_profit} руб.")
 
-print(f"Итоговая сумма вклада: {final_sum} руб.")
-print(f"Общая прибыль: {earned_profit} руб.")
+# 7.Рациональные дроби
+a = Fraction(3, 4)
+b = Fraction(5, 6)
+print('\nОсновные операции с рациональными дробями:')
+print(a, b)
+print('сложение:', a + b)
+print('вычитание:', a - b)
+print('умножение:', a * b)
+print('деление:', a / b)
+
